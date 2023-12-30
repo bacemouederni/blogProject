@@ -1,0 +1,70 @@
+.nav-link.active {
+    color:red !important;
+}
+footer{
+    background-color: #5d535d;
+    text-align: center;
+    margin-top: 2%;
+    color: white;
+}
+footer img {
+    width: 5%;
+}
+#img-header{
+    background-image: url(../img/fond.jpeg);
+    background-position: center;
+    background-size: top;
+    padding-bottom: 20%;
+}
+.navbar1 {
+    background:rgba(0, 0, 0, 0.3)!important;
+    padding: 2%;
+    
+}
+
+.section-details article{
+    flex-basis: 49%;
+}
+#img-home{
+    background-image: url(../img/fond.jpeg);
+    background-position: center;
+    background-size: top;
+    padding-bottom: 5%;
+   
+     
+}
+#imge-header{
+    background-image: url(../img/img7.jpg);
+    background-position: center;
+    background-size: top;
+    padding-bottom: 5%;
+    
+}
+
+ .par{
+    background: rgba(0, 0, 0, 0.3);
+ }
+ .nav-div2{
+    margin-top: 20%;
+  
+ }
+ .div-img{
+    height: 300px;
+ }
+.card 
+{
+    flex-basis: 30% !important;
+}
+
+
+
+
+
+
+
+
+
+
+   
+
+
