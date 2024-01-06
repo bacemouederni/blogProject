@@ -39,9 +39,15 @@ export default function Update() {
     
     async function updateArticle(e) {
         e.preventDefault()
+        let formData = new FormData()
+        formData.append('title', data.title)
+        formData.append('content', data.content)
+        formData.append('categorie', data.categorie)
+        formData.append('image', image.data)
+    
         try {
             console.log(data);
-            await axios.post(`http://localhost:8081/update/${id}`, data);
+            await axios.put(`http://localhost:8081/update/${id}`, formData);
             window.location.href = '/listeArticle'
         } catch (error) {
             console.error('Error updating article:', error);

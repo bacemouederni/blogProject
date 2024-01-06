@@ -37,7 +37,7 @@ const deletOne=AsyncHandler(async(req,res)=>{
 
     let articles=await Article.deleteOne (query);
    // res.redirect('/showArticle')
-   res.json("delet")
+   res.json("delete")
 });
 const update=AsyncHandler(async(req,res)=>{
     const categories=await Categorie.find()
@@ -46,7 +46,6 @@ const update=AsyncHandler(async(req,res)=>{
     res.json({article:articles, categories:categories})
 });
 const modifier=AsyncHandler(async(req,res)=>{
-    const categorie=await Categorie.find()
     const query = { _id: (req.params.id) };
     const today = new Date();
     const date =
@@ -56,7 +55,7 @@ const modifier=AsyncHandler(async(req,res)=>{
         content:req.body.content,
         categorie:req.body.categorie,
         postedAt: date,
-        image:req.body.image
+        image:"http://localhost:8081/uploads/"+req.file.filename
     })
     await Article.findByIdAndUpdate(query,article).populate('categorie')
    res.json(article)
