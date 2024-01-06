@@ -1,6 +1,5 @@
 import {useState, useEffect } from 'react';
 import axios from 'axios';
-import Images from '../assets/img/img1.jpg'
 import header1 from '../assets/img/3wa.png'
 export default function Home() {
   const [articles, setArticles] = useState([])
@@ -95,7 +94,7 @@ export default function Home() {
           {articles.map((article) =>
             <div className="card  bg-light " key={article._id}>
               <div className="border div-img">
-                <img className="w-100 h-100" src={Images} alt="img1"></img>
+                <img className="w-100 h-100" src={article.image} alt="img1"></img>
               </div>
               <div className="card-body">
                 <h3 className="text-primary">{article.title}</h3>

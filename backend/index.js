@@ -19,7 +19,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 
 
-app.use(express.static( "public"));
+app.use('/uploads',express.static( "./public/uploads"));
 import connectDB from './config/db.js';
 
 connectDB()
@@ -31,9 +31,9 @@ app.listen(port, function () {
 });
 app.use(cors({origin:'*'}))
 app.use(bodyparser.json());
-const __filename = new URL(import.meta.url).pathname;
+/*const __filename = new URL(import.meta.url).pathname;
 const __dirname = path.dirname(__filename);
-app.use('/images', express.static(path.join(__dirname, '/public/uploads/')));
+app.use('/images', express.static(path.join(__dirname, '/public/uploads/')));*/
 app.use(router)
 
 

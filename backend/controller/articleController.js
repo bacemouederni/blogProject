@@ -17,7 +17,7 @@ const ajoutarticle =AsyncHandler(async(req,res)=>{
         content:req.body.content,
         categorie:req.body.categorie,
         postedAt: date,
-        image:req.file.filename
+        image:"http://localhost:8081/uploads/"+req.file.filename
       
     })
    await article.save();
