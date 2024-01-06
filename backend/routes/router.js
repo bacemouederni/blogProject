@@ -19,8 +19,11 @@ const upload = multer({ storage: storage })
 
 
 
-import {addCategorieForm,ajoutCategorie,getCategorie,deletCategorie,findCategorie,modifierCategorie} from'../controller/categorieController.js';
+import {ajoutCategorie,getCategorie,deletCategorie,findCategorie,modifierCategorie} from'../controller/categorieController.js';
 import {ajoutArticleForm,ajoutarticle,deletOne,update,modifier,home, category, recherche,detailsArticle,communt, showArticle} from '../controller/articleController.js';
+import {ajoutUser,getUsers,deleteUser,modifierUser,findUserById,login} from '../controller/userController.js';
+
+router.route('/').get(home)
 
 router.route('/getCategorie').get(getCategorie)
 router.route('/ajoutCategorie').post(ajoutCategorie)
@@ -30,20 +33,21 @@ router.route('/updateCategorie/:id').put(modifierCategorie)
 
 router.route('/ajoutArticle').get(ajoutArticleForm)
 router.route('/ajoutArticle').post(upload.single('image'), ajoutarticle)
-
-
 router.route('/showArticle').get(showArticle)
 router.route('/deletOne/:id').get(deletOne)
 router.route('/update/:id').get(update)
 router.route('/update/:id').post(modifier)
-router.route('/').get(home)
 router.route('/articles/:id').get(category)
 router.route('/').post(recherche)
 router.route('/detailsArticle/:id').get(detailsArticle)
 router.route('/detailsArticle/:id').post(communt)
 
-
-
+router.route('/login').post(login)
+router.route('/getUser').get(getUsers)
+router.route('/ajoutUser').post(ajoutUser)
+router.route('/deleteUser/:id').delete(deleteUser)
+router.route('/findUserById/:id').get(findUserById)
+router.route('/updateUser/:id').put(modifierUser)
 
 
 

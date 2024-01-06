@@ -2,26 +2,25 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import header1 from '../assets/img/3wa.png'
 import axios from "axios"
-export default function ListeCategorie() {
-  const [categories, setCategories] = useState([]) 
-  async function getCategorie() {
-    await axios.get('http://localhost:8081/getCategorie')
+export default function ListeUser() {
+  const [users, setUsers] = useState([]) 
+  async function getUser() {
+    await axios.get('http://localhost:8081/getUser')
       .then(response => {
-        setCategories(response.data)
+        setUsers(response.data)
       })
   }
-  useEffect(() => { getCategorie() }, [])
+  useEffect(() => { getUser() }, [])
 
-  async function deletCategorie(id) {
+  async function deleteUser(id) {
 
-    await axios.delete(`http://localhost:8081/deleteCategorie/${id}`)
+    await axios.delete(`http://localhost:8081/deleteUser/${id}`)
     .then(res => {
       console.log('deleted',res)
-     window.location.href='/listCategorie'
+     window.location.href='/listUser'
     });
      
   }
-
   return (
      <div>
       <header>
@@ -32,7 +31,7 @@ export default function ListeCategorie() {
                 <a className="nav-link text-light" href="/">Mon blog <span className="sr-only">(current)</span></a>
               </li>
             </ul>
-            <a href='/' className="btn btn-link text-light my-2 my-sm-0">
+              <a href='/' className="btn btn-link text-light my-2 my-sm-0">
               <i className="fa-solid fa-power-off"></i> se déconnecter </a>
           </div>
         </nav>
@@ -53,7 +52,7 @@ export default function ListeCategorie() {
                   <button className="nav-link text-primary text-left"> <i className="fa-solid fa-paragraph"></i> Gestion des articles</button></a>
                   <a href="/listCategorie"><button className="nav-link  text-left text-primary"
                      type="button"  aria-selected="false"> <i className="fa-solid fa-folder"></i> Gestion des categories</button></a>
-                   <a href="/listUser"><button className="nav-link  text-left text-primary"
+                    <a href="/listUser"><button className="nav-link  text-left text-primary"
                      type="button"  aria-selected="false"> <i className="fa-solid fa-user"></i> Gestion des utilisateurs</button></a>
                 </div>
               </div>
@@ -73,24 +72,26 @@ export default function ListeCategorie() {
           </article>
           <article className="col-lg-8 m-lg-2">
             <div className="d-flex justify-content-between">
-              <h2>liste de categories</h2>
-             <a href="/ajoutCategorie"> <button type="button" className=" text- btn btn-primary  mb-lg-2"><i className="fa-solid fa-plus"></i> ajouter un
-                categorie</button></a>
+              <h2>liste des utilisateurs</h2>
+             <a href="/ajoutUser"> <button type="button" className=" text- btn btn-primary  mb-lg-2"><i className="fa-solid fa-plus"></i> ajouter un
+                utilisateur</button></a>
             </div>
             <table className="table table-striped table-bordered">
               <thead>
                 <tr>
-                  <th scope="col">categorie</th>           
+                  <th scope="col">email</th>     
+                  <th scope="col">password</th>        
                   <th scope="col">action</th>
                 </tr>
               </thead>
               <tbody>
-                {categories.map((categorie) =>
-                  <tr key={categorie._id}>
-                    <td>{categorie.categorie}</td>
+                {users.map((user) =>
+                  <tr key={user._id}>
+                    <td>{user.email}</td>
+                    <td>{user.password}</td>
                     <td className="text-right">
-                      <a href={`/updateCategorie/${categorie._id}`} className="btn text-secondary"><i className="fa-solid fa-pen"></i> modifier</a>
-                      <button  className="btn  text-danger" onClick={()=>  deletCategorie(categorie._id)}  id="delete">
+                      <a href={`/updateUser/${user._id}`} className="btn text-secondary"><i className="fa-solid fa-pen"></i> modifier</a>
+                      <button  className="btn  text-danger" onClick={()=>  deleteUser(user._id)}  id="delete">
                         <i  className="fa-solid fa-trash "></i>Supprimer</button>
                     </td>
                   </tr>

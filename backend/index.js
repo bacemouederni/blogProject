@@ -2,6 +2,8 @@ import express from 'express';
 import bodyparser from "body-parser";
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
+
 
 const app = express()
 
@@ -29,7 +31,9 @@ app.listen(port, function () {
 });
 app.use(cors({origin:'*'}))
 app.use(bodyparser.json());
-
+const __filename = new URL(import.meta.url).pathname;
+const __dirname = path.dirname(__filename);
+app.use('/images', express.static(path.join(__dirname, '/public/uploads/')));
 app.use(router)
 
 

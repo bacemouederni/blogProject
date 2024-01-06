@@ -45,7 +45,7 @@ export default function Home() {
                   </li>
 
                   <li className="nav-item ">
-                    <a className="nav-link  text-white" href='/listeArticle'>ADMINISTRATION</a>
+                    <a className="nav-link  text-white" href='/login'>ADMINISTRATION</a>
                   </li>
                 </ul>
 
@@ -120,7 +120,7 @@ export default function Home() {
             </article>
             <article className="col-lg-3 bg-light text-center  pt-5">
               <h4 className="text-primary"> Notre objectif</h4>
-              <p>Nous cgecgent le monde a la rechacghe de bons plans,d'astuces pour vous aider à voyage plus facilement.</p>
+              <p>Nous aidons le monde a la rechache de bons plans,d&lsquo;astuces pour vous aider à voyage plus facilement.</p>
 
             </article>
             <article className="col-lg-3 bg-light text-center  pt-5">

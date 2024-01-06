@@ -38,10 +38,8 @@ export default function ListeArticle() {
                 <a className="nav-link text-light" href="/">Mon blog <span className="sr-only">(current)</span></a>
               </li>
             </ul>
-            <form className="form-inline my-2 my-lg-0">
-              <button className="btn btn-link text-light my-2 my-sm-0" type="submit"><i className="fa-solid fa-power-off"></i> se
-                déconnecter</button>
-            </form>
+            <a href='/' className="btn btn-link text-light my-2 my-sm-0">
+              <i className="fa-solid fa-power-off"></i> se déconnecter </a>
           </div>
         </nav>
       </header>
@@ -54,11 +52,16 @@ export default function ListeArticle() {
                   aria-orientation="vertical">
                   <button className="nav-link active  text-left text-primary" id="v-pills-home-tab" data-toggle="pill"
                     data-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="false">
-                    <i className="fa-solid fa-house"></i> talbleau de bord</button>
+                    <i className="fa-solid fa-house"></i> tableau de bord</button>
+                    <a href="/dashboard"><button className="nav-link  text-left text-primary"
+               type="button"  aria-selected="false"> <i className="fa-solid fa-user"></i> Dashboard</button></a>
                   <a href="/listeArticle">
                   <button className="nav-link text-primary text-left"> <i className="fa-solid fa-paragraph"></i> Gestion des articles</button></a>
                   <a href="/listCategorie"><button className="nav-link  text-left text-primary"
-                     type="button"  aria-selected="false"> <i className="fa-solid fa-folder"></i> Gestion des Gategories</button></a>
+                     type="button"  aria-selected="false"> <i className="fa-solid fa-folder"></i> Gestion des categories</button></a>
+                   <a href="/listUser"><button className="nav-link  text-left text-primary"
+                     type="button"  aria-selected="false"> <i className="fa-solid fa-user"></i> Gestion des utilisateurs</button></a>
+                 
                 </div>
               </div>
               <div>

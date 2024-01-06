@@ -1,23 +1,25 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function Categorie() {
-  const [categorie, setCategorie] = useState('');
+export default function Users() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
 
   useEffect(() => {
   }, []);
 
-  async function ajoutCategorie(e) {
+  async function ajoutUser(e) {
     e.preventDefault();
-    console.log(categorie);
     const test = {
-      categorie: categorie
+      email: email,
+      password: password
     }
 
     try {
-      const res = await axios.post('http://localhost:8081/ajoutCategorie', test);
+      const res = await axios.post('http://localhost:8081/ajoutUser', test);
       console.log(res.data);
-      window.location.href = '/listCategorie';
+      window.location.href = '/listUser';
     } catch (error) {
       console.log('error', error);
     }
@@ -67,8 +69,16 @@ export default function Categorie() {
                   <i className="fa-solid fa-folder"></i> Gestion des categories
                 </button>
               </a>
-              <a href="/listUser"><button className="nav-link  text-left text-primary"
-                     type="button"  aria-selected="false"> <i className="fa-solid fa-user"></i> Gestion des utilisateurs</button></a>
+              <a href="/listUser">
+                <button
+                  className="nav-link text-left text-primary"
+                  type="button"
+                  aria-selected="false"
+                >
+                  {' '}
+                  <i className="fa-solid fa-user"></i> Gestion des utilisateurs
+                </button>
+              </a>
             </div>
             <div>
               <div className="tab-content" id="v-pills-tabContent">
@@ -103,13 +113,13 @@ export default function Categorie() {
 
         <article className="col-lg-8 m-lg-2">
           <div className="d-flex justify-content-between">
-            <h2>Rédiger une categorie </h2>
+            <h2>ajouter un utilisateur </h2>
           </div>
           <article>
             <form encType="multipart/form-data" method="post">
               <button
                 type="submit"
-                onClick={(e) => ajoutCategorie(e)}
+                onClick={(e) => ajoutUser(e)}
                 className="text-btn btn btn-primary mb-lg-2"
               >
                 Submit
@@ -117,9 +127,17 @@ export default function Categorie() {
               <div className="form-group mb-lg-0">
                 <div className="form-group">
                   <label htmlFor="exampleFormControlSelect1 mt-lg-2">
-                    Categorie des articles{' '}
+                    email{' '}
                   </label>
-                  <input type="text" name='categorie' className="form-control" value={categorie} onChange={(e) => setCategorie(e.target.value)} id="exampleFormControlInput1" placeholder="taper une categorie" />
+                  <input type="email" name='email' className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} id="exampleFormControlInput1" placeholder="taper un email" />
+                </div>
+              </div>
+              <div className="form-group mb-lg-0">
+                <div className="form-group">
+                  <label htmlFor="exampleFormControlSelect1 mt-lg-2">
+                    password{' '}
+                  </label>
+                  <input type="password" name='password' className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} id="exampleFormControlInput1" placeholder="taper un mot de passe" />
                 </div>
               </div>
             </form>
